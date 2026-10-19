@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Melody Ogbonna</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Melody <span>Ogbonna</span></a>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="projects.html">Projects & Fashion</a></li>
+                <li><a href="planner.html">Academic Planner</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <h2 class="section-title">Get in Touch</h2>
+        <p style="color: var(--text-light); margin-bottom: 2rem;">Have an inquiry regarding cybersecurity, web development, or Faiga Masani menswear? Reach out directly!</p>
+
+        <div class="contact-grid">
+            <div class="card">
+                <h3>Contact Information</h3>
+                <p style="margin: 1rem 0; color: var(--text-light);">Feel free to reach out via email, phone, or view my GitHub profile.</p>
+                <ul style="list-style: none; line-height: 2.2;">
+                    <li><i class="fas fa-envelope" style="color: var(--accent); width: 25px;"></i> ogbonnamelody95@gmail.com</li>
+                    <li><i class="fas fa-phone" style="color: var(--accent); width: 25px;"></i> 09035022973</li>
+                    <li><i class="fab fa-github" style="color: var(--primary); width: 25px;"></i> <a href="https://github.com/ogbonnamelody95-ctrl" target="_blank" style="color: var(--accent);">ogbonnamelody95-ctrl</a></li>
+                    <li><i class="fas fa-map-marker-alt" style="color: var(--accent); width: 25px;"></i> Abuja, Nigeria</li>
+                    <li><i class="fas fa-tshirt" style="color: var(--gold); width: 25px;"></i> Faiga Masani Brand</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div id="successBanner" class="success-banner"></div>
+                <form id="contactForm" novalidate>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Enter your full name">
+                        <div class="error-message">Name cannot be empty.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email address">
+                        <div class="error-message">Please enter a valid email address.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="text" id="phone" placeholder="Enter phone number (digits only)">
+                        <div class="error-message">Phone number must contain only digits.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" placeholder="Type your message here..."></textarea>
+                        <div class="error-message">Message cannot be empty.</div>
+                    </div>
+
+                    <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Melody Ogbonna. Term Project. All Rights Reserved. | Abuja, Nigeria</p>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

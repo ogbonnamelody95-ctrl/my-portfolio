@@ -1,0 +1,7 @@
+# COS 106 - Introduction to Web Technologies & Python Programming
+Course Materials & Lecture Summaries
+
+1. Module 1: Introduction to Web Design (HTML5 & CSS3)
+2. Module 2: Client-side Scripting with JavaScript
+3. Module 3: Python Programming Basics (Variables, Functions, Lists, Dictionaries)
+4. Practical Lab Guide: Responsive Portfolio Development
