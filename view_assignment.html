@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Document Viewer | Melody Ogbonna</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .viewer-container {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-top: 1.5rem;
+        }
+        .viewer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .pdf-frame {
+            width: 100%;
+            height: 750px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Melody <span>Ogbonna</span></a>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="planner.html">Academic Planner</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <div class="viewer-container">
+            <div class="viewer-header">
+                <div>
+                    <a href="projects.html" class="btn btn-outline" style="margin-bottom: 0.5rem;"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+                    <h2 id="docTitle" style="color: var(--primary); margin-top: 0.5rem;">Academic Document Viewer</h2>
+                </div>
+                <div>
+                    <a id="openTabBtn" href="#" target="_blank" class="btn"><i class="fas fa-external-link-alt"></i> Open in Full Tab</a>
+                </div>
+            </div>
+            <p id="docDesc" style="color: var(--text-light); margin-bottom: 1.5rem;">Previewing completed lab assignment directly on the webpage.</p>
+            
+            <iframe id="pdfIframe" src="" class="pdf-frame" title="Academic Document Viewer">
+                <p>Your browser does not support inline PDF viewing. <a id="fallbackLink" href="#">Click here to open the document</a>.</p>
+            </iframe>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Melody Ogbonna. COS 106 Term Project. All Rights Reserved. | Abuja, Nigeria</p>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const file = params.get('file');
+            const name = params.get('name') || 'Assignment Document';
+
+            if (file) {
+                const docPath = 'my_assignments/' + file;
+                document.getElementById('docTitle').textContent = name;
+                document.getElementById('pdfIframe').src = docPath;
+                document.getElementById('openTabBtn').href = docPath;
+                document.getElementById('fallbackLink').href = docPath;
+            } else {
+                document.getElementById('docTitle').textContent = "Document Not Found";
+                document.getElementById('docDesc').textContent = "Please return to the Projects page and select a valid assignment.";
+            }
+        });
+    </script>
+</body>
+</html>

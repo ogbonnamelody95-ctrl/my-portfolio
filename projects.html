@@ -22,63 +22,186 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
-    </header>
+        </header>
 
-    <main>
-        <h2 class="section-title"> Projects & Portfolio Showcase</h2>
-        <p style="color: var(--text-light); margin-bottom: 2rem;">Click on any project below to open the corresponding repository, assignment file, or live showcase.</p>
+        <main>
+        <h2 class="section-title">Projects & Academic Works Showcase</h2>
+        <p style="color: var(--text-light); margin-bottom: 2rem;">Explore my software projects, cybersecurity lab exercises, and Faiga Masani menswear brand.</p>
 
-        <!-- Clickable Project Cards Grid -->
-        <div class="grid-3">
-            <a href="https://github.com/ogbonnamelody95-ctrl" target="_blank" class="card clickable-card">
-                <div style="background: #e2e8f0; height: 160px; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
-                    <i class="fab fa-github fa-4x" style="color: var(--primary);"></i>
+        <!-- Organized Default Project Cards -->
+        <div id="projectGrid" class="grid-3">
+            <!-- Project 1: Exercise 1.3.1 -->
+            <div class="card project-card">
+                <span class="project-tag python-tag"><i class="fab fa-python"></i> Python Assignment</span>
+                <h3>Exercise 1.3.1: Python Variables</h3>
+                <p style="color: var(--text-light); font-size: 0.95rem; margin-top: 0.5rem;">Demonstrating variable declaration, data typing, and rules for valid variable names in Python programming.</p>
+                <div class="project-actions">
+                    <a href="view_assignment.html?file=Exercise%201.3.1.ipynb%20-%20Colab%20done.pdf&name=Exercise%201.3.1%20-%20Python%20Variables" class="btn btn-sm"><i class="fas fa-eye"></i> View on Web Page</a>
                 </div>
-                <h3>GitHub Profile & Code Repositories</h3>
-                <p style="color: var(--text-light); margin-top: 0.5rem;">Click to visit my official GitHub profile: <strong>https://github.com/ogbonnamelody95-ctrl</strong> showcasing all my source code.</p>
-            </a>
+            </div>
 
-            <a href="planner.html" class="card clickable-card">
-                <div style="background: #e2e8f0; height: 160px; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
-                    <i class="fas fa-tasks fa-4x" style="color: var(--accent);"></i>
+            <!-- Project 2: Exercise 1.4.1 -->
+            <div class="card project-card">
+                <span class="project-tag python-tag"><i class="fab fa-python"></i> Python Assignment</span>
+                <h3>Exercise 1.4.1: Functions & Calculations</h3>
+                <p style="color: var(--text-light); font-size: 0.95rem; margin-top: 0.5rem;">Calculating loan simple interest and converting Celsius temperature to Fahrenheit using modular Python functions.</p>
+                <div class="project-actions">
+                    <a href="view_assignment.html?file=Exercise%201.4.1.ipynb%20-%20Colab%20done.pdf&name=Exercise%201.4.1%20-%20Functions%20%26%20Calculations" class="btn btn-sm"><i class="fas fa-eye"></i> View on Web Page</a>
                 </div>
-                <h3>Academic & Business Management Planner</h3>
-                <p style="color: var(--text-light); margin-top: 0.5rem;">Interactive task management application for tracking my assignments and business milestones.</p>
-            </a>
+            </div>
 
-            <a href="my_assignments/Exercise 1.3.1.ipynb - Colab done.pdf" target="_blank" class="card clickable-card">
-                <div style="background: #e2e8f0; height: 160px; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
-                    <i class="fab fa-python fa-4x" style="color: #306998;"></i>
+            <!-- Project 3: Exercise 1.5.1 -->
+            <div class="card project-card">
+                <span class="project-tag python-tag"><i class="fab fa-python"></i> Python Assignment</span>
+                <h3>Exercise 1.5.1: Lists & Score Sorting</h3>
+                <p style="color: var(--text-light); font-size: 0.95rem; margin-top: 0.5rem;">Manipulating numeric lists, sorting exam scores in descending order, and performing statistical operations.</p>
+                <div class="project-actions">
+                    <a href="view_assignment.html?file=Exercise%201.5.1.ipynb%20-%20Colab%20done.pdf&name=Exercise%201.5.1%20-%20Lists%20%26%20Score%20Sorting" class="btn btn-sm"><i class="fas fa-eye"></i> View on Web Page</a>
                 </div>
-                <h3>Python Lab Assignments Package</h3>
-                <p style="color: var(--text-light); margin-top: 0.5rem;">Click to access my completed Colab exercises (Variables, Interest Calculator, Lists, and Dictionaries) stored in <code>my_assignments/</code>.</p>
-            </a>
+            </div>
+
+            <!-- Project 4: Exercise 1.5.2 -->
+            <div class="card project-card">
+                <span class="project-tag python-tag"><i class="fab fa-python"></i> Python Assignment</span>
+                <h3>Exercise 1.5.2: Dictionaries & COVID Data</h3>
+                <p style="color: var(--text-light); font-size: 0.95rem; margin-top: 0.5rem;">Data structures practice using key-value pair dictionaries to process, modify, and query regional dataset metrics.</p>
+                <div class="project-actions">
+                    <a href="view_assignment.html?file=Exercise%201.5.2.ipynb%20-%20Colab%20done.pdf&name=Exercise%201.5.2%20-%20Dictionaries%20%26%20COVID%20Data" class="btn btn-sm"><i class="fas fa-eye"></i> View on Web Page</a>
+                </div>
+            </div>
+
+            <!-- Project 5: GitHub Repo -->
+            <div class="card project-card gold-top">
+                <span class="project-tag"><i class="fab fa-github"></i> Open Source</span>
+                <h3>GitHub Code Repository</h3>
+                <p style="color: var(--text-light); font-size: 0.95rem; margin-top: 0.5rem;">Explore source code repositories and version control history for my web development & cybersecurity coursework.</p>
+                <div class="project-actions">
+                    <a href="https://github.com/ogbonnamelody95-ctrl" target="_blank" class="btn btn-sm btn-outline"><i class="fab fa-github"></i> Visit GitHub Profile</a>
+                </div>
+            </div>
+
+            <!-- Project 6: Faiga Masani Menswear Brand -->
+            <div class="card project-card gold-top">
+                <span class="project-tag" style="background: #fce7f3; color: #be185d;"><i class="fas fa-tshirt"></i> Faiga Masani</span>
+                <h3>Faiga Masani Menswear Brand</h3>
+                <p style="color: var(--text-light); font-size: 0.95rem; margin-top: 0.5rem;">Luxury menswear fashion venture integrating bespoke tailoring, modern e-commerce operations, and brand identity.</p>
+                <div class="project-actions">
+                    <a href="view_gallery.html" class="btn btn-sm" style="background-color: #d97706; color: white;"><i class="fas fa-images"></i> View Gallery</a>
+                </div>
+            </div>
         </div>
 
-        <!-- Project Works Upload Room -->
-        <div style="margin-top: 4rem;">
-            <h3 class="section-title"><i class="fas fa-tshirt"></i>  Project Upload Room</h3>
-            <p style="color: var(--text-light); margin-bottom: 1.5rem;">Upload project screenshots.</p>
+        <!-- Dynamically Added Custom Projects Container -->
+        <div id="customProjectsGrid" class="grid-3" style="margin-top: 0;"></div>
 
-            <div class="upload-box">
-                <i class="fas fa-cloud-upload-alt fa-3x" style="color: var(--accent); margin-bottom: 1rem;"></i>
-                <h4>Upload my Projects </h4>
-                <div style="max-width: 500px; margin: 1rem auto; display: flex; flex-direction: column; gap: 1rem;">
-                    <input type="text" id="fashionTitleInput" placeholder="Enter Work / Design Title (e.g., Faiga Masani Autumn Suit)" style="padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px;">
-                    <input type="file" id="fashionUploadInput" accept="image/*" style="padding: 0.5rem;">
-                    <button id="uploadWorkBtn" class="btn btn-gold"><i class="fas fa-plus-circle"></i> Add Work to Gallery</button>
-                </div>
+        <!-- Project & Gallery Upload Room (Owner Controlled) -->
+        <div class="card" style="margin-top: 3rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
+                <h3 style="color: var(--primary);"><i class="fas fa-plus-circle" style="color: var(--accent);"></i> Add New Project Card</h3>
+                <span id="projectAuthBadge" class="visitor-badge">Owner Access Required</span>
             </div>
+            <p style="color: var(--text-light); margin-bottom: 1.5rem; font-size: 0.95rem;">Create and showcase a new completed project card on your portfolio. (Requires owner login in Academic Planner).</p>
 
-            
-            </div>
+            <form id="newProjectForm" style="max-width: 600px; display: flex; flex-direction: column; gap: 1rem;">
+                <input type="text" id="newProjTitle" class="task-input-styled" placeholder="Project Title (e.g., Cybersecurity Lab 2)" required>
+                <input type="text" id="newProjTag" class="task-input-styled" placeholder="Project Tag (e.g., Cybersecurity Assignment)" required>
+                <textarea id="newProjDesc" class="task-input-styled" placeholder="Short description of the project..." style="height: 90px; resize: vertical;" required></textarea>
+                <input type="text" id="newProjLink" class="task-input-styled" placeholder="Project Link or PDF File Name (e.g., my_assignments/lab2.pdf)" required>
+                <button type="submit" class="btn" style="width: fit-content;"><i class="fas fa-save"></i> Publish New Project</button>
+            </form>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 Melody Ogbonna. Term Project. All Rights Reserved. | Abuja, Nigeria</p>
+        <p>&copy; 2026 Melody Ogbonna. COS 106 Term Project. All Rights Reserved. | Abuja, Nigeria</p>
     </footer>
 
     <script src="assets/js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('newProjectForm');
+            const customGrid = document.getElementById('customProjectsGrid');
+            const authBadge = document.getElementById('projectAuthBadge');
+            const isAdmin = sessionStorage.getItem('melody_admin_active') === 'true';
+
+            if (authBadge) {
+                if (isAdmin) {
+                    authBadge.className = 'admin-badge';
+                    authBadge.innerHTML = '<i class="fas fa-user-shield"></i> Owner Access Active (Posting Enabled)';
+                } else {
+                    authBadge.className = 'visitor-badge';
+                    authBadge.innerHTML = '<i class="fas fa-lock"></i> Locked (Log in via Planner to Add Projects)';
+                }
+            }
+
+            function loadCustomProjects() {
+                if (!customGrid) return;
+                let customProjects = JSON.parse(localStorage.getItem('melody_custom_projects_v1')) || [];
+                customGrid.innerHTML = '';
+
+                customProjects.forEach((proj, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'card project-card';
+                    
+                    let deleteProjBtn = '';
+                    if (isAdmin) {
+                        deleteProjBtn = `<button type="button" onclick="deleteCustomProject(${index})" class="delete-img-btn" style="position:static; margin-top:0.5rem; width:fit-content; background:var(--danger);">Delete Project</button>`;
+                    }
+
+                    card.innerHTML = `
+                        <span class="project-tag"><i class="fas fa-certificate"></i> ${escapeHtml(proj.tag)}</span>
+                        <h3>${escapeHtml(proj.title)}</h3>
+                        <p style="color: var(--text-light); font-size: 0.95rem; margin-top: 0.5rem;">${escapeHtml(proj.description)}</p>
+                        <div class="project-actions" style="display:flex; flex-direction:column; align-items:flex-start;">
+                            <a href="${escapeHtml(proj.link)}" target="_blank" class="btn btn-sm"><i class="fas fa-external-link-alt"></i> View Project</a>
+                            ${deleteProjBtn}
+                        </div>
+                    `;
+                    customGrid.appendChild(card);
+                });
+            }
+
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    if (!isAdmin) {
+                        alert('Restricted: You must log in as owner (`melody2026`) in your Academic Planner before adding new projects.');
+                        return;
+                    }
+
+                    const title = document.getElementById('newProjTitle').value.trim();
+                    const tag = document.getElementById('newProjTag').value.trim();
+                    const description = document.getElementById('newProjDesc').value.trim();
+                    const link = document.getElementById('newProjLink').value.trim();
+
+                    if (!title || !description || !link) return;
+
+                    let customProjects = JSON.parse(localStorage.getItem('melody_custom_projects_v1')) || [];
+                    customProjects.push({ title, tag, description, link });
+                    localStorage.setItem('melody_custom_projects_v1', JSON.stringify(customProjects));
+
+                    form.reset();
+                    loadCustomProjects();
+                    alert('Success! Your new project has been published to your portfolio showcase.');
+                });
+            }
+
+            window.deleteCustomProject = function(index) {
+                if (!isAdmin) return;
+                if (confirm('Are you sure you want to delete this custom project card?')) {
+                    let customProjects = JSON.parse(localStorage.getItem('melody_custom_projects_v1')) || [];
+                    customProjects.splice(index, 1);
+                    localStorage.setItem('melody_custom_projects_v1', JSON.stringify(customProjects));
+                    loadCustomProjects();
+                }
+            };
+
+            function escapeHtml(str) {
+                return (str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+            }
+
+            loadCustomProjects();
+        });
+    </script>
 </body>
 </html>

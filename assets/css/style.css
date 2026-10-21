@@ -4,12 +4,11 @@
 
 :root {
     --primary: #0f172a;       /* Deep Slate */
-    --accent: #0284c7;        /* Vibrant Blue */
+    --accent: #0284c7;        /* Vibrant Blue (Original Website Accent) */
     --accent-hover: #0369a1;
-    --gold: #d97706;          /* Faiga Masani Gold */
     --bg-color: #f8fafc;
     --card-bg: #ffffff;
-    --text-main: #334155;
+    --text-main: #1e293b;
     --text-light: #64748b;
     --border-color: #e2e8f0;
     --success: #16a34a;
@@ -62,7 +61,7 @@ header {
 }
 
 .logo span {
-    color: var(--gold);
+    color: #d97706; /* Original Orange Accent */
 }
 
 .nav-links {
@@ -154,7 +153,7 @@ main {
     position: absolute;
     bottom: -15px;
     right: -15px;
-    background: var(--gold);
+    background: #d97706; /* Original Orange Accent */
     color: white;
     padding: 0.75rem 1.25rem;
     border-radius: 8px;
@@ -184,7 +183,6 @@ main {
     background-color: transparent;
     border: 2px solid var(--accent);
     color: var(--accent);
-    margin-left: 0.5rem;
 }
 
 .btn-outline:hover {
@@ -192,13 +190,10 @@ main {
     color: white;
 }
 
-.btn-gold {
-    background-color: var(--gold);
-    color: white;
-}
-
-.btn-gold:hover {
-    background-color: #b45309;
+.btn-sm {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    border-radius: 4px;
 }
 
 .section-title {
@@ -230,10 +225,12 @@ main {
 .card {
     background: var(--card-bg);
     padding: 2rem;
-    border-radius: 8px;
+    border-radius: 12px;
     box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
     border: 1px solid var(--border-color);
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
 }
 
 .card:hover {
@@ -241,100 +238,153 @@ main {
     box-shadow: 0 10px 20px rgba(0,0,0,0.08);
 }
 
-/* Clickable Project Cards */
-.clickable-card {
-    cursor: pointer;
-    text-decoration: none;
-    color: inherit;
-    display: block;
+/* Project Card Specific Styling */
+.project-card {
+    border-top: 4px solid var(--accent);
 }
 
-.clickable-card:hover h3 {
-    color: var(--accent);
+.project-card.gold-top {
+    border-top: 4px solid #d97706;
 }
 
-/* Upload Room & Dynamic Gallery */
-.upload-box {
-    border: 2px dashed var(--accent);
-    background: #f0f9ff;
-    padding: 2rem;
-    text-align: center;
-    border-radius: 8px;
-    margin-bottom: 2rem;
+.project-tag {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 20px;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    width: fit-content;
 }
 
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
+.project-tag.python-tag {
+    background: #fef3c7;
+    color: #b45309;
 }
 
-.gallery-item {
-    background: var(--card-bg);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    border: 1px solid var(--border-color);
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-}
-
-.gallery-item .info {
-    padding: 0.75rem 1rem;
-    font-size: 0.9rem;
-}
-
-/* Tables */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1.5rem;
-    background: var(--card-bg);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-th, td {
-    padding: 1rem;
-    text-align: left;
-    border-bottom: 1px solid var(--border-color);
-}
-
-th {
-    background-color: var(--primary);
-    color: white;
-}
-
-tr:hover {
-    background-color: #f1f5f9;
-}
-
-/* Planner Task Items */
-.planner-box {
-    background: var(--card-bg);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-}
-
-.task-input-group {
+.project-actions {
+    margin-top: auto;
+    padding-top: 1.25rem;
     display: flex;
-    gap: 1rem;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+/* Planner Task Box Styling (Matching Screenshot Layout with Original Colors) */
+.task-box-container {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    border: 1px solid #f1f5f9;
+    margin-bottom: 2.5rem;
+}
+
+.task-box-sub {
+    color: var(--accent);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 0.25rem;
+}
+
+.task-box-title {
+    font-size: 1.85rem;
+    color: var(--primary);
+    font-weight: 800;
     margin-bottom: 1.5rem;
 }
 
-.task-input-group input, .task-input-group select {
-    flex: 1;
-    padding: 0.75rem;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
+.task-field-group {
+    margin-bottom: 1.25rem;
+}
+
+.task-field-group label {
+    display: block;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.task-input-styled {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
     font-size: 1rem;
+    background: #fafafa;
+    transition: var(--transition);
+}
+
+.task-input-styled:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.task-btn-styled {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.85rem 1.75rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.task-btn-styled:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.task-note-text {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: #94a3b8;
+    line-height: 1.5;
+}
+
+/* Visitor Mode & Admin Access Controls */
+.visitor-banner {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 1rem 1.25rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.admin-badge {
+    background: #dcfce7;
+    color: #15803d;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.visitor-badge {
+    background: #f1f5f9;
+    color: #475569;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
 }
 
 .task-list {
@@ -345,17 +395,17 @@ tr:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    background: #f8fafc;
+    padding: 1.1rem;
+    background: #ffffff;
     border: 1px solid var(--border-color);
-    border-radius: 6px;
+    border-radius: 10px;
     margin-bottom: 0.75rem;
     transition: var(--transition);
 }
 
 .task-item.completed {
-    background: #f0fdf4;
-    border-color: #bbf7d0;
+    background: #f8fafc;
+    border-color: #cbd5e1;
     text-decoration: line-through;
     color: var(--text-light);
 }
@@ -371,7 +421,30 @@ tr:hover {
 .complete-btn { color: var(--success); }
 .delete-btn { color: var(--danger); }
 
-/* Form Styles */
+/* Modal Styles */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-card {
+    background: white;
+    width: 90%;
+    max-width: 420px;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+}
+
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -424,6 +497,42 @@ tr:hover {
     border: 1px solid #bbf7d0;
     margin-bottom: 1rem;
     display: none;
+}
+
+/* Upload Room & Dynamic Gallery */
+.upload-box {
+    border: 2px dashed var(--accent);
+    background: #f0f9ff;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.gallery-item {
+    background: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.gallery-item .info {
+    padding: 0.85rem 1rem;
+    font-size: 0.9rem;
 }
 
 footer {

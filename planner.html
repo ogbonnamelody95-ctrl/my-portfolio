@@ -25,57 +25,86 @@
     </header>
 
     <main>
-        <h2 class="section-title">Academic & Student Management Portal</h2>
-        <p style="color: var(--text-light); margin-bottom: 2rem;">Manage your course assignments, view stored academic materials, and maintain your daily planner.</p>
+        <h2 class="section-title">Academic Planner & Study Goals</h2>
+        <p style="color: var(--text-light); margin-bottom: 2rem;">Plan upcoming study goals, track daily tasks, and organize future academic milestones.</p>
 
-        <!-- Course Assignments & Materials Folder Section -->
-        <div class="grid-3" style="margin-bottom: 3rem;">
-            <div class="card">
-                <h3><i class="fas fa-folder-open" style="color: var(--gold);"></i> my_assignments/ Folder</h3>
-                <p style="color: var(--text-light); margin: 0.75rem 0;">Click below to access your completed Python Colab assignments stored directly in your website package:</p>
-                <ul style="padding-left: 1.2rem; line-height: 2;">
-                    <li><a href="my_assignments/Exercise 1.3.1.ipynb - Colab done.pdf" target="_blank">Exercise 1.3.1 - Python Variables</a></li>
-                    <li><a href="my_assignments/Exercise 1.4.1.ipynb - Colab done.pdf" target="_blank">Exercise 1.4.1 - Functions & Interest</a></li>
-                    <li><a href="my_assignments/Exercise 1.5.1.ipynb - Colab done.pdf" target="_blank">Exercise 1.5.1 - Lists & Sorting</a></li>
-                    <li><a href="my_assignments/Exercise 1.5.2.ipynb - Colab done.pdf" target="_blank">Exercise 1.5.2 - COVID Dictionaries</a></li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3><i class="fas fa-book-reader" style="color: var(--accent);"></i> course_materials/ Folder</h3>
-                <p style="color: var(--text-light); margin: 0.75rem 0;">Access lecture summaries and course syllabus guidelines for Miva Open University:</p>
-                <ul style="padding-left: 1.2rem; line-height: 2;">
-                    <li><a href="course_materials/COS106_Course_Syllabus_and_Guide.txt" target="_blank">COS 106 Syllabus & Guide</a></li>
-                    <li>Module 1: Web Fundamentals</li>
-                    <li>Module 2: Client-side JavaScript</li>
-                </ul>
-            </div>
+        <!-- Course Materials Reference Card -->
+        <div class="card" style="margin-bottom: 2.5rem;">
+            <h3><i class="fas fa-book-reader" style="color: var(--accent);"></i> Reference & Course Materials</h3>
+            <p style="color: var(--text-light); margin: 0.75rem 0; font-size: 0.9rem;">Quick access to Miva Open University course resources and study guidelines:</p>
+            <ul style="padding-left: 1.2rem; line-height: 2; font-size: 0.95rem;">
+                <li><a href="course_materials/COS106_Course_Syllabus_and_Guide.txt" target="_blank">COS 106 Syllabus & Guide</a></li>
+                <li>Module 1: Web Technologies (HTML & CSS)</li>
+                <li>Module 2: Client-side Scripting with JavaScript</li>
+            </ul>
         </div>
 
-        <!-- Interactive Planner -->
-        <h3 class="section-title">Interactive Task Planner</h3>
-        <div class="planner-box">
-            <form id="taskForm" class="task-input-group">
-                <input type="text" id="taskInput" placeholder="Enter new assignment or business task..." required>
-                <select id="taskCategory">
-                    <option value="Academic">Academic</option>
-                    <option value="Fashion/Business">Fashion / Business</option>
-                    <option value="Personal">Personal</option>
-                </select>
-                <button type="submit" class="btn"><i class="fas fa-plus"></i> Add Task</button>
+        <!-- Task Management Card -->
+        <div class="task-box-container">
+            <div class="visitor-banner">
+                <div>
+                    <span id="modeBadge" class="visitor-badge"><i class="fas fa-eye"></i> Visitor View Mode (Read Only)</span>
+                    <span style="font-size: 0.85rem; color: var(--text-light); margin-left: 0.5rem;">Visitors can view study tasks. Deleting & ticking is restricted to portfolio owner.</span>
+                </div>
+                <button id="adminToggleBtn" class="btn btn-outline btn-sm">Owner Login</button>
+            </div>
+
+            <div class="task-box-sub">NEW GOAL / TASK</div>
+            <div class="task-box-title">What needs doing?</div>
+
+            <form id="taskForm">
+                <div class="task-field-group">
+                    <label for="taskInput">Task or Future Goal Description</label>
+                    <input type="text" id="taskInput" class="task-input-styled" placeholder="e.g. Study Python dictionaries or prepare for upcoming exam">
+                </div>
+
+                <div class="grid-3" style="gap: 1rem; margin-top:0; margin-bottom: 1.25rem;">
+                    <div class="task-field-group" style="margin-bottom:0;">
+                        <label for="taskDueDate">Target Date (optional)</label>
+                        <input type="date" id="taskDueDate" class="task-input-styled">
+                    </div>
+                    <div class="task-field-group" style="margin-bottom:0;">
+                        <label for="taskCategory">Category</label>
+                        <select id="taskCategory" class="task-input-styled">
+                            <option value="Current Studies">Current Studies</option>
+                            <option value="Future Goals">Future Goals</option>
+                            <option value="Projects">Projects</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="task-btn-styled"><i class="fas fa-plus"></i> Add task</button>
             </form>
 
+            <p class="task-note-text"><i class="fas fa-info-circle"></i> Your planner list is stored safely in your browser session.</p>
+        </div>
+
+        <!-- Task List Display Section -->
+        <div>
+            <div class="task-box-sub">YOUR PLANNER</div>
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                <h3 style="color: var(--primary);">Active Tasks</h3>
-                <span id="taskCount" style="font-weight: 600; color: var(--text-light);">0 tasks remaining</span>
+                <h3 style="font-size: 1.75rem; color: var(--primary); font-weight: 800;">Study Dashboard & Future Plans</h3>
+                <span id="taskCount" style="font-weight: 700; color: var(--text-light);">0 tasks remaining</span>
             </div>
 
             <ul id="taskList" class="task-list">
-                <!-- Dynamically populated -->
+                <!-- Populated dynamically via JS -->
             </ul>
         </div>
     </main>
 
+    <!-- Admin Passcode Modal -->
+    <div id="adminModal" class="modal-overlay">
+        <div class="modal-card">
+            <h3 style="margin-bottom: 0.5rem; color: var(--primary);"><i class="fas fa-lock" style="color: var(--gold);"></i> Owner Access Login</h3>
+            <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 1.25rem;">Enter owner key to enable task addition, ticking completion, and deletion controls.</p>
+            <input type="password" id="adminPassInput" class="task-input-styled" placeholder="Enter owner passcode" style="margin-bottom: 1rem;">
+            <div style="display: flex; justify-content: flex-end; gap: 0.5rem;">
+                <button id="closeModalBtn" class="btn btn-outline btn-sm">Cancel</button>
+                <button id="submitPassBtn" class="btn btn-gold btn-sm">Unlock Controls</button>
+            </div>
+        </div>
+    </div>
     <footer>
         <p>&copy; 2026 Melody Ogbonna. Term Project. All Rights Reserved. | Abuja, Nigeria</p>
     </footer>

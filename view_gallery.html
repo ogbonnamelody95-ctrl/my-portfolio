@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faiga Masani Gallery | Melody Ogbonna</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gallery-container {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            margin-top: 1.5rem;
+        }
+        .gallery-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .gallery-item {
+            position: relative;
+        }
+        .delete-img-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(220, 38, 38, 0.9);
+            color: white;
+            border: none;
+            padding: 0.4rem 0.65rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: var(--transition);
+            z-index: 10;
+        }
+        .delete-img-btn:hover {
+            background: rgb(185, 28, 28);
+            transform: scale(1.05);
+        }
+        .upload-room-box {
+            background: #f8fafc;
+            border: 2px dashed var(--border-color);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            display: none; /* Shown only when owner is logged in */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Melody <span>Ogbonna</span></a>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="projects.html" class="active">Projects</a></li>
+                <li><a href="planner.html">Academic Planner</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <div class="gallery-container">
+            <div class="gallery-header">
+                <div>
+                    <a href="projects.html" class="btn btn-outline" style="margin-bottom: 0.5rem;"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+                    <h2 style="color: var(--primary); margin-top: 0.5rem;"><i class="fas fa-tshirt" style="color: #d97706;"></i> Faiga Masani Gallery</h2>
+                </div>
+                <div>
+                    <span id="galleryModeBadge" class="visitor-badge"><i class="fas fa-eye"></i> Visitor View Mode</span>
+                    <a href="planner.html" class="btn btn-outline btn-sm" style="margin-left: 0.5rem;">Owner Login in Planner</a>
+                </div>
+            </div>
+            <p style="color: var(--text-light); margin-bottom: 2rem;">Explore all uploaded bespoke menswear designs and collection works.</p>
+            
+            <!-- Owner Image Upload Room (Seamlessly Appears When Logged In) -->
+            <div id="ownerUploadRoom" class="upload-room-box">
+                <h4 style="color: var(--primary); margin-bottom: 0.75rem;"><i class="fas fa-cloud-upload-alt" style="color: var(--accent);"></i> Upload New Fashion Image</h4>
+                <form id="galleryUploadForm" style="display: flex; flex-direction: column; gap: 1rem; max-width: 500px;">
+                    <input type="text" id="galleryTitleInput" class="task-input-styled" placeholder="Enter Design Title (e.g., Faiga Masani Agbada)" required>
+                    <input type="file" id="galleryFileInput" accept="image/*,.tif,.tiff" style="padding: 0.5rem;" required>
+                    <button type="submit" class="btn" style="width: fit-content;"><i class="fas fa-plus-circle"></i> Add Work to Gallery</button>
+                </form>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div id="fullGalleryGrid" class="gallery-grid">
+                <!-- Populated dynamically via JS -->
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Melody Ogbonna. COS 106 Term Project. All Rights Reserved. | Abuja, Nigeria</p>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('fullGalleryGrid');
+            const badge = document.getElementById('galleryModeBadge');
+            const uploadRoom = document.getElementById('ownerUploadRoom');
+            const uploadForm = document.getElementById('galleryUploadForm');
+            const isAdmin = sessionStorage.getItem('melody_admin_active') === 'true';
+
+            if (badge) {
+                if (isAdmin) {
+                    badge.className = 'admin-badge';
+                    badge.innerHTML = '<i class="fas fa-user-shield"></i> Owner Access (Upload & Delete Enabled)';
+                    if (uploadRoom) uploadRoom.style.display = 'block';
+                } else {
+                    badge.className = 'visitor-badge';
+                    badge.innerHTML = '<i class="fas fa-eye"></i> Visitor View Mode';
+                    if (uploadRoom) uploadRoom.style.display = 'none';
+                }
+            }
+
+            function loadGallery() {
+                if (!grid) return;
+                let works = JSON.parse(localStorage.getItem('melody_project_works_v6')) || [
+                    { title: 'Faiga Masani Bespoke Suit Concept', src: 'assets/images/profile.jpg' }
+                ];
+
+                grid.innerHTML = '';
+                if (works.length === 0) {
+                    grid.innerHTML = '<p style="color: var(--text-light);">No gallery works uploaded yet.</p>';
+                    return;
+                }
+
+                works.forEach((work, index) => {
+                    const div = document.createElement('div');
+                    div.className = 'gallery-item';
+                    
+                    let deleteBtnHTML = '';
+                    if (isAdmin) {
+                        deleteBtnHTML = `<button type="button" class="delete-img-btn" onclick="deleteGalleryImage(${index})" title="Remove Picture"><i class="fas fa-trash"></i> Delete</button>`;
+                    }
+
+                    div.innerHTML = `
+                        <img src="${work.src}" alt="${escapeHtml(work.title)}">
+                        <div class="info">
+                            <strong>${escapeHtml(work.title)}</strong>
+                        </div>
+                        ${deleteBtnHTML}
+                    `;
+                    grid.appendChild(div);
+                });
+            }
+
+            if (uploadForm) {
+                uploadForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    if (!isAdmin) {
+                        alert('Restricted: Owner login required.');
+                        return;
+                    }
+
+                    const titleInput = document.getElementById('galleryTitleInput');
+                    const fileInput = document.getElementById('galleryFileInput');
+                    const file = fileInput.files[0];
+
+                    if (!file || !titleInput.value.trim()) return;
+
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        let works = JSON.parse(localStorage.getItem('melody_project_works_v6')) || [];
+                        works.push({
+                            title: titleInput.value.trim(),
+                            src: event.target.result
+                        });
+                        localStorage.setItem('melody_project_works_v6', JSON.stringify(works));
+                        uploadForm.reset();
+                        loadGallery();
+                        alert('Success! Your fashion image has been added to the Faiga Masani Gallery.');
+                    };
+                    reader.readAsDataURL(file);
+                });
+            }
+
+            window.deleteGalleryImage = function(index) {
+                if (!isAdmin) {
+                    alert('Visitor Mode: Deleting images is restricted to the portfolio owner.');
+                    return;
+                }
+                if (confirm('Are you sure you want to remove this picture from your gallery?')) {
+                    let works = JSON.parse(localStorage.getItem('melody_project_works_v6')) || [];
+                    works.splice(index, 1);
+                    localStorage.setItem('melody_project_works_v6', JSON.stringify(works));
+                    loadGallery();
+                }
+            };
+
+            function escapeHtml(str) {
+                return (str || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+            }
+
+            loadGallery();
+        });
+    </script>
+</body>
+</html>
